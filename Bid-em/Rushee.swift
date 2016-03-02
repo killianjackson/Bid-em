@@ -46,13 +46,19 @@ class Rushee {
         return _rating
     }
     
-    init(firstName: String, lastName: String, year: Int, major: String, email: String, phoneNumber: String) {
+    var imageURL: String {
+        return _imageURL
+    }
+    
+    init(firstName: String, lastName: String, year: Int, major: String, email: String, phoneNumber: String, rating: Double, imageURL: String) {
         self._firstName = firstName
         self._lastName = lastName
         self._year = year
         self._major = major
         self._email = email
         self._phoneNumber = phoneNumber
+        self._rating = rating
+        self._imageURL = imageURL
     }
     
 }

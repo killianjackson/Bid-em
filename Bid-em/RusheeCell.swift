@@ -36,6 +36,7 @@ class RusheeCell: UITableViewCell {
     }
     
     func configureCell (rushee: Rushee) {
+        self.rusheeImg.image = UIImage(named: "bearwear")
         self.rushee = rushee
         self.rusheeNameLbl.text = rushee.firstName + " " + rushee.lastName
         switch rushee.year {
