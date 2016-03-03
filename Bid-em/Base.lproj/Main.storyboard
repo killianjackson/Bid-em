@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15E33e" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15E33e" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="oCa-HR-N61">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -33,16 +33,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SL9-Ay-crr">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SL9-Ay-crr">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="65"/>
                                 <color key="backgroundColor" red="0.12941176469999999" green="0.58823529409999997" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="600" id="4X3-zm-fRX"/>
-                                    <constraint firstAttribute="height" constant="60" id="h6b-6I-enc"/>
+                                    <constraint firstAttribute="height" constant="65" id="h6b-6I-enc"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ana-Kj-MXl" customClass="MaterialButton" customModule="Bid_em" customModuleProvider="target">
-                                <rect key="frame" x="535" y="78" width="45" height="28"/>
+                                <rect key="frame" x="535" y="83" width="45" height="28"/>
                                 <color key="backgroundColor" red="0.12941176469999999" green="0.58823529409999997" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="3lR-sm-6wh"/>
@@ -61,7 +61,7 @@
                                 </variation>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="76" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7Hy-TQ-pSi">
-                                <rect key="frame" x="20" y="114" width="560" height="466"/>
+                                <rect key="frame" x="20" y="119" width="560" height="461"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RusheeCell" rowHeight="76" id="4Sx-gN-9tm" customClass="RusheeCell" customModule="Bid_em" customModuleProvider="target">
@@ -82,22 +82,22 @@
                                                             </constraints>
                                                         </imageView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="aOF-fp-oii">
-                                                            <rect key="frame" x="60" y="2" width="308" height="58"/>
+                                                            <rect key="frame" x="60" y="1" width="308" height="57.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Killian Jackson" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="24c-lG-w5C">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="102" height="20"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="101.5" height="19.5"/>
                                                                     <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="14"/>
                                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Senior" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hMe-JD-UAK">
-                                                                    <rect key="frame" x="0.0" y="21" width="40" height="18"/>
+                                                                    <rect key="frame" x="0.0" y="20" width="39.5" height="18"/>
                                                                     <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="13"/>
                                                                     <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Computer Science" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jb4-I5-GoE">
-                                                                    <rect key="frame" x="0.0" y="40" width="111" height="18"/>
+                                                                    <rect key="frame" x="0.0" y="39" width="111" height="18"/>
                                                                     <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="13"/>
                                                                     <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -180,7 +180,7 @@
                                 </connections>
                             </tableView>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search rushees" translatesAutoresizingMaskIntoConstraints="NO" id="0SP-ny-e5f">
-                                <rect key="frame" x="20" y="70" width="515" height="44"/>
+                                <rect key="frame" x="20" y="75" width="515" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="505" id="X62-gP-efv"/>
                                     <constraint firstAttribute="height" constant="44" id="f8c-rL-EC4"/>
@@ -245,7 +245,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1925" y="345"/>
+            <point key="canvasLocation" x="1945" y="345"/>
         </scene>
         <!--New RusheeVC-->
         <scene sceneID="pVP-Na-YeM">
@@ -454,6 +454,7 @@
                     <connections>
                         <outlet property="emailField" destination="kKY-lf-nKS" id="1gb-vT-r1w"/>
                         <outlet property="passwordField" destination="olE-MA-Muh" id="hZt-G1-Ei7"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="loggedIn" id="C9g-Fp-tPL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FFd-ux-t5A" sceneMemberID="firstResponder"/>

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Firebase
 
 class Rushee {
     private var _firstName: String!
@@ -17,6 +18,8 @@ class Rushee {
     private var _phoneNumber: String!
     private var _imageURL: String!
     private var _rating: Double!
+    private var _rusheeKey: String!
+    private var _rusheeRef: Firebase!
     
     var firstName: String {
         return _firstName
@@ -48,6 +51,10 @@ class Rushee {
     
     var imageURL: String {
         return _imageURL
+    }
+    
+    var rusheeKey: String {
+        return _rusheeKey
     }
     
     init(firstName: String, lastName: String, year: Int, major: String, email: String, phoneNumber: String, rating: Double, imageURL: String) {
