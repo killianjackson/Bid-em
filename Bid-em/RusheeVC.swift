@@ -148,7 +148,6 @@ class RusheeVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     
     func updateTableView() {
         filteredRushees = []
-        let count = rushees.count - 1
         switch filterMode {
         case 1:
             for rushee in rushees {

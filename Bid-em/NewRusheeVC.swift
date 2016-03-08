@@ -7,11 +7,19 @@
 //
 
 import UIKit
+import Firebase
+import Alamofire
 
 class NewRusheeVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var picture: UIImageView!
     @IBOutlet weak var photoLibrary: UIButton!
+    @IBOutlet weak var firstNameTextField: MaterialTextField!
+    @IBOutlet weak var lastNameTextField: MaterialTextField!
+    @IBOutlet weak var yearTextField: MaterialTextField!
+    @IBOutlet weak var majorTextField: MaterialTextField!
+    @IBOutlet weak var emailTextField: MaterialTextField!
+    @IBOutlet weak var phoneNumberTextField: MaterialTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad();
@@ -50,4 +58,5 @@ class NewRusheeVC: UIViewController, UIImagePickerControllerDelegate, UINavigati
     @IBAction func cancelButtonPressed(sender: UIButton) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
 }
