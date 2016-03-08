@@ -2,7 +2,7 @@
 //  NewRusheeVC.swift
 //  Bid-em
 //
-//  Created by Killian Jackson on 3/1/16.
+//  Created by David Scheibe on 3/7/16.
 //  Copyright © 2016 Killian Jackson. All rights reserved.
 //
 
@@ -29,6 +29,10 @@ class NewRusheeVC: UIViewController, UIImagePickerControllerDelegate, UINavigati
         
     }
     
+    @IBAction func saveData_andReturn(sender: AnyObject) {
+        
+    }
+    
     func pictureTapped(gesture: UIGestureRecognizer) {
         if let picture = gesture.view as? UIImageView {
             let picker = UIImagePickerController();
@@ -38,7 +42,8 @@ class NewRusheeVC: UIViewController, UIImagePickerControllerDelegate, UINavigati
         }
         
     }
+    
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: AnyObject]) {
-            picture.image = info [UIImagePickerControllerOriginalImage] as? UIImage; dismissViewControllerAnimated(true, completion: nil);
+        picture.image = info [UIImagePickerControllerOriginalImage] as? UIImage; dismissViewControllerAnimated(true, completion: nil);
     }
 }
