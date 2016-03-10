@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class RusheeCell: UITableViewCell {
 
@@ -36,7 +37,22 @@ class RusheeCell: UITableViewCell {
     }
     
     func configureCell (rushee: Rushee) {
-        self.rusheeImg.image = UIImage(named: "bearwear")
+        print(rushee.imageURL)
+        if (rushee.imageURL != "camera") {
+        _ = Alamofire.request(.GET, rushee.imageURL).validate(contentType: ["image/*"]).response(completionHandler: { request, response, data, err in
+            if err == nil {
+                let img = UIImage(data: data!)!
+                self.rusheeImg.image = img
+            } else {
+                self.rusheeImg.image = UIImage(named: "camera")
+                print(err.debugDescription)
+            }
+        })
+        } else
+        {
+            self.rusheeImg.image = UIImage(named: "camera")
+        }
+
         self.rushee = rushee
         self.rusheeNameLbl.text = rushee.firstName + " " + rushee.lastName
         switch rushee.year {

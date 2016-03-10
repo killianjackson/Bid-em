@@ -31,7 +31,7 @@ class ViewController: UIViewController {
 
     @IBAction func fbBtnPressed(sender: UIButton!) {
         let facebookLogin = FBSDKLoginManager()
-        facebookLogin.logInWithReadPermissions(["email"],fromViewController: self) { (facebookResult: FBSDKLoginManagerLoginResult!, facebookError: NSError!) in
+        facebookLogin.logInWithReadPermissions(["public_profile","email"],fromViewController: self) { (facebookResult: FBSDKLoginManagerLoginResult!, facebookError: NSError!) in
             if facebookError != nil {
                 print("Facebook login failed. Error: \(facebookError)")
             } else {
@@ -42,10 +42,18 @@ class ViewController: UIViewController {
                     if error != nil {
                         print("Login failed. \(error)")
                     } else {
-                        
-                        let user = ["provider": authData.provider!]
-                        DataService.ds.createFirebaseUser(authData.uid, user: user)
-                        
+                        let req = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"name"], tokenString: accessToken, version: nil, HTTPMethod: "GET")
+                        req.startWithCompletionHandler({ (connection, result, error : NSError!) -> Void in
+                            if(error == nil)
+                            {
+                                let user = ["provider": authData.provider!, "username": result.valueForKey("name") as! String]
+                                DataService.ds.createFirebaseUser(authData.uid, user: user)
+                            }
+                            else
+                            {
+                                print("error \(error)")
+                            }
+                        })
                         print("Logged in! \(authData)")
                         NSUserDefaults.standardUserDefaults().setValue(authData.uid, forKey: KEY_UID)
                         self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)

@@ -16,14 +16,23 @@ class Rushee {
     private var _major: String!
     private var _email: String!
     private var _phoneNumber: String!
-    private var _imageURL: String!
-    private var _rating: Double!
+    private var _imageURL: String?
+    private var _sumRatings: Double!
     private var _group: Int!
     private var _rusheeKey: String!
     private var _rusheeRef: Firebase!
+    private var _numRatings: Double!
     
     var firstName: String {
         return _firstName
+    }
+    
+    var numRatings: Double {
+        return _numRatings
+    }
+    
+    var sumRatings: Double {
+        return _sumRatings
     }
     
     var lastName: String {
@@ -47,11 +56,53 @@ class Rushee {
     }
     
     var rating: Double {
-        return _rating
+        if (_sumRatings == 0 || _numRatings == 0){
+            return 0
+        } else {
+            let curRating = _sumRatings / _numRatings
+            print(curRating)
+            if (curRating >= 0 && curRating < 0.5){
+                return 0
+            } else if (curRating >= 0.5 && curRating < 1){
+                return 0.5
+            }
+            else if (curRating >= 1 && curRating < 1.5){
+                return 1
+            }
+            else if (curRating >= 1.5 && curRating < 2){
+                return 1.5
+            }
+            else if (curRating >= 2 && curRating < 2.5){
+                return 2
+            }
+            else if (curRating >= 2.5 && curRating < 3){
+                return 2.5
+            }
+            else if (curRating >= 3 && curRating < 3.5){
+                return 3
+            }
+            else if (curRating >= 3.5 && curRating < 4){
+                return 3.5
+            }
+            else if (curRating >= 4 && curRating < 4.5){
+                return 4
+            }
+            else if (curRating >= 4.5 && curRating < 5){
+                return 4.5
+            }
+            else if (curRating == 5){
+                return 5
+            }
+        }
+        return 0
     }
     
     var imageURL: String {
-        return _imageURL
+        if (_imageURL == nil){
+            return "camera"
+        } else {
+        return _imageURL!
+        }
     }
     
     var rusheeKey: String {
@@ -67,23 +118,33 @@ class Rushee {
         return _group
     }
     
-    init(firstName: String, lastName: String, year: Int, major: String, email: String, phoneNumber: String, rating: Double, imageURL: String, group: Int) {
+    func addRating(rating: Double){
+        self._numRatings = self._numRatings + 1.0
+        self._sumRatings = self._sumRatings + rating
+    }
+    
+    init(firstName: String, lastName: String, year: Int, major: String, email: String, phoneNumber: String, imageURL: String, group: Int, sumRatings: Double, numRatings: Double) {
         self._firstName = firstName
         self._lastName = lastName
         self._year = year
         self._major = major
         self._email = email
         self._phoneNumber = phoneNumber
-        self._rating = rating
+        self._sumRatings = sumRatings
+        self._numRatings = numRatings
         self._group = group
         self._imageURL = imageURL
     }
     
     init(rusheeKey: String, dictionary:Dictionary<String, AnyObject>) {
         self._rusheeKey = rusheeKey
-        
+        self._rusheeRef = DataService.ds.REF_RUSHEES.childByAppendingPath(self._rusheeKey)
         if let email = dictionary["email"] as? String {
             self._email = email
+        }
+        
+        if let imageURL = dictionary["imageURL"] as? String {
+            self._imageURL = imageURL
         }
         
         if let firstName = dictionary["firstName"] as? String {
@@ -97,15 +158,19 @@ class Rushee {
         if let major = dictionary["major"] as? String {
             self._major = major
         }
-        
-        if let phoneNumber = dictionary["phoneNumber"] as? Int {
-            self._phoneNumber = "\(phoneNumber)"
+
+        if let phoneNumber = dictionary["phoneNumber"] as? String {
+            self._phoneNumber = phoneNumber
         }
         
-        if let rating = dictionary["rating"] as? Double {
-            self._rating = Double(rating)
+        if let sumRatings = dictionary["sumRatings"] as? Double {
+            self._sumRatings = sumRatings
         }
         
+        if let numRatings = dictionary["numRatings"] as? Double {
+            self._numRatings = numRatings
+        }
+
         if let year = dictionary["year"] as? Int {
             self._year = year
         }

@@ -31,6 +31,11 @@
 		B2F107F21C7FC1BF00DFC081 /* Rushee.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F107F11C7FC1BF00DFC081 /* Rushee.swift */; };
 		B2F107F41C7FD31600DFC081 /* RusheeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F107F31C7FD31600DFC081 /* RusheeCell.swift */; };
 		FC1E93F21C8E59100094745A /* NewRusheeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1E93F11C8E59100094745A /* NewRusheeVC.swift */; };
+		FC31113F1C8F8ADE00141A4C /* Alpha54.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC31113E1C8F8ADE00141A4C /* Alpha54.ttf */; };
+		FC3111411C8FC7C700141A4C /* RusheeInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3111401C8FC7C700141A4C /* RusheeInfoVC.swift */; };
+		FC3111431C90323600141A4C /* BowRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3111421C90323600141A4C /* BowRatingView.swift */; };
+		FC3111451C913F4500141A4C /* commentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3111441C913F4500141A4C /* commentCell.swift */; };
+		FC3111471C91449600141A4C /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3111461C91449600141A4C /* Comment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +67,11 @@
 		B2F107F11C7FC1BF00DFC081 /* Rushee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rushee.swift; sourceTree = "<group>"; };
 		B2F107F31C7FD31600DFC081 /* RusheeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RusheeCell.swift; sourceTree = "<group>"; };
 		FC1E93F11C8E59100094745A /* NewRusheeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewRusheeVC.swift; sourceTree = "<group>"; };
+		FC31113E1C8F8ADE00141A4C /* Alpha54.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Alpha54.ttf; path = ../../../../Downloads/alpha54/Alpha54.ttf; sourceTree = "<group>"; };
+		FC3111401C8FC7C700141A4C /* RusheeInfoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RusheeInfoVC.swift; sourceTree = "<group>"; };
+		FC3111421C90323600141A4C /* BowRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BowRatingView.swift; sourceTree = "<group>"; };
+		FC3111441C913F4500141A4C /* commentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = commentCell.swift; sourceTree = "<group>"; };
+		FC3111461C91449600141A4C /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +161,8 @@
 				B2E4B5CC1C7E4BE60023BA9F /* MaterialButton.swift */,
 				B2E4B5CD1C7E4BE60023BA9F /* MaterialTextField.swift */,
 				B2F107F31C7FD31600DFC081 /* RusheeCell.swift */,
+				FC3111421C90323600141A4C /* BowRatingView.swift */,
+				FC3111441C913F4500141A4C /* commentCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -167,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				B2F107F11C7FC1BF00DFC081 /* Rushee.swift */,
+				FC3111461C91449600141A4C /* Comment.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -178,6 +191,7 @@
 				B2E4B5B71C7E4AD20023BA9F /* RusheeVC.swift */,
 				B242CF9A1C867A3A002AE29C /* FilterVC.swift */,
 				FC1E93F11C8E59100094745A /* NewRusheeVC.swift */,
+				FC3111401C8FC7C700141A4C /* RusheeInfoVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -185,6 +199,7 @@
 		B2F107F51C7FD7C500DFC081 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FC31113E1C8F8ADE00141A4C /* Alpha54.ttf */,
 				B2F107E41C7FBB4000DFC081 /* NotoSans-Bold.ttf */,
 				B2F107E51C7FBB4000DFC081 /* NotoSans-BoldItalic.ttf */,
 				B2F107E61C7FBB4000DFC081 /* NotoSans-Italic.ttf */,
@@ -269,6 +284,7 @@
 				B2F107EA1C7FBB4000DFC081 /* NotoSans-Italic.ttf in Resources */,
 				B2E4B5C01C7E4AD20023BA9F /* Assets.xcassets in Resources */,
 				B2E4B5BB1C7E4AD20023BA9F /* Main.storyboard in Resources */,
+				FC31113F1C8F8ADE00141A4C /* Alpha54.ttf in Resources */,
 				B2F107EB1C7FBB4000DFC081 /* NotoSans-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -329,18 +345,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2F107F41C7FD31600DFC081 /* RusheeCell.swift in Sources */,
+				FC3111431C90323600141A4C /* BowRatingView.swift in Sources */,
 				B2E4B5D01C7E4BE60023BA9F /* MaterialTextField.swift in Sources */,
 				B2E4B5BE1C7E4AD20023BA9F /* Bid_em.xcdatamodeld in Sources */,
 				B217A4871C86A4DF0036BCF2 /* DataService.swift in Sources */,
+				FC3111471C91449600141A4C /* Comment.swift in Sources */,
 				B2E4B5B81C7E4AD20023BA9F /* RusheeVC.swift in Sources */,
 				B217A4841C86A4AC0036BCF2 /* ViewController.swift in Sources */,
 				B2E4B5B61C7E4AD20023BA9F /* AppDelegate.swift in Sources */,
 				FC1E93F21C8E59100094745A /* NewRusheeVC.swift in Sources */,
+				FC3111411C8FC7C700141A4C /* RusheeInfoVC.swift in Sources */,
 				B2E4B5D21C7E4C1A0023BA9F /* Constants.swift in Sources */,
 				B2E4B5CE1C7E4BE60023BA9F /* MaterialView.swift in Sources */,
 				B242CF9B1C867A3A002AE29C /* FilterVC.swift in Sources */,
 				B2E4B5CF1C7E4BE60023BA9F /* MaterialButton.swift in Sources */,
 				B2F107F21C7FC1BF00DFC081 /* Rushee.swift in Sources */,
+				FC3111451C913F4500141A4C /* commentCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

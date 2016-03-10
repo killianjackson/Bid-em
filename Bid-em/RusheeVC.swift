@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class RusheeVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UIPopoverPresentationControllerDelegate {
+class RusheeVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UIPopoverPresentationControllerDelegate{
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -31,14 +31,12 @@ class RusheeVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     
     /*
 
-
     filterModes cases
     0 = all rushees
     1 = accepted bids
     2 = holding bids
     3 = declined bids
     4 = axed
-    
     
     */
     
@@ -109,6 +107,21 @@ class RusheeVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         }
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        var rushee: Rushee!
+               
+        if (inSearchMode){
+            rushee = searchFilteredRushees[indexPath.row]
+        } else if filterMode != 0 {
+            rushee = filteredRushees[indexPath.row]
+        }
+        else {
+            rushee = rushees[indexPath.row ]
+        }
+        
+        performSegueWithIdentifier("rusheeInfoSegue", sender: rushee)
+    }
+    
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         view.endEditing(true)
     }
@@ -139,6 +152,10 @@ class RusheeVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
             let popoverPresentationController = segue.destinationViewController.popoverPresentationController
             let sourceView = sender as? UIButton
             popoverPresentationController!.sourceRect = sourceView!.bounds
+            
+        } else if segue.identifier == "rusheeInfoSegue" {
+            let rusheeInfoVC = segue.destinationViewController as! RusheeInfoVC
+            rusheeInfoVC.rushee = sender as! Rushee
         }
     }
     

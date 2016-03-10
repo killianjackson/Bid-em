@@ -17,6 +17,7 @@ class DataService {
     private var _REF_BASE = Firebase(url: "\(URL_BASE)")
     private var _REF_USERS = Firebase(url: "\(URL_BASE)/users")
     private var _REF_RUSHEES = Firebase(url: "\(URL_BASE)/rushees")
+    private var _REF_COMMENTS = Firebase(url: "\(URL_BASE)/comments")
     
     var REF_BASE: Firebase {
         return _REF_BASE
@@ -28,6 +29,10 @@ class DataService {
     
     var REF_USERS: Firebase {
         return _REF_USERS
+    }
+    
+    var REF_COMMENTS: Firebase {
+        return _REF_COMMENTS
     }
     
     var REF_USER_CURRENT: Firebase {
