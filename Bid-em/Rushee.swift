@@ -121,6 +121,12 @@ class Rushee {
     func addRating(rating: Double){
         self._numRatings = self._numRatings + 1.0
         self._sumRatings = self._sumRatings + rating
+        
+        let firebasePost = DataService.ds.REF_RUSHEES.childByAppendingPath(self.rusheeKey).childByAppendingPath("numRatings")
+        firebasePost.setValue(numRatings)
+        let firebasePost2 = DataService.ds.REF_RUSHEES.childByAppendingPath(self.rusheeKey).childByAppendingPath("sumRatings")
+        firebasePost2.setValue(sumRatings)
+        
     }
     
     init(firstName: String, lastName: String, year: Int, major: String, email: String, phoneNumber: String, imageURL: String, group: Int, sumRatings: Double, numRatings: Double) {

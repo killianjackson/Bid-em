@@ -28,11 +28,12 @@ class Comment {
         return _commenterName
     }
     
-    init(comment: String, commenterName: String, rating: Double)
+    init(comment: String, commenterName: String, rating: String)
     {
         self._comment = comment
         self._commenterName = commenterName
-        self._rating = rating
+        let trimmedRating = rating.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+        self._rating = Double(trimmedRating)
     }
     
     init(commentKey: String, dictionary: Dictionary<String, AnyObject>) {

@@ -120,6 +120,7 @@ class RusheeVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         }
         
         performSegueWithIdentifier("rusheeInfoSegue", sender: rushee)
+        self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {

@@ -27,7 +27,13 @@ class NewRusheeVC: UIViewController, UIImagePickerControllerDelegate, UINavigati
         picture.addGestureRecognizer(tapGesture);
         picture.userInteractionEnabled = true;
         
+        picture.layer.cornerRadius = picture.frame.size.width / 2
+        picture.clipsToBounds = true
+        picture.clipsToBounds = true
+        
     }
+    
+    
     
     @IBAction func photoLibraryAction(sender: UIButton) {
         let picker = UIImagePickerController();
@@ -37,13 +43,12 @@ class NewRusheeVC: UIViewController, UIImagePickerControllerDelegate, UINavigati
         
     }
     
-    func postToFirebase(firstName: String!, lastName: String!, year: Int!, major: String!, email: String!, phoneNumber: String!, imgURL: String!, sumRating: Double!,numRating: Double!) {
+    func postToFirebase(firstName: String!, lastName: String!, year: Int!, major: String!, email: String!, phoneNumber: String!, imgURL: String!, sumRating: Double!,numRating: Double!, group: Int!) {
         let post: Dictionary<String, AnyObject> = [
-            "firstName": firstName, "lastName": lastName, "year": year, "major": major, "email" : email, "phoneNumber":phoneNumber, "imageURL": imgURL,"sumRatings": sumRating, "numRatings": numRating]
+            "firstName": firstName, "lastName": lastName, "year": year, "major": major, "email" : email, "phoneNumber":phoneNumber, "imageURL": imgURL,"sumRatings": sumRating, "numRatings": numRating, "group" : group]
         
         
         let firebasePost = DataService.ds.REF_RUSHEES.childByAutoId()
-        print("here")
         firebasePost.setValue(post)
         
         firstNameTextField.text = ""
@@ -87,7 +92,7 @@ class NewRusheeVC: UIViewController, UIImagePickerControllerDelegate, UINavigati
                                 
                                 if let imgLink = links["image_link"] as? String {
                                     
-                                    self.postToFirebase(fN,lastName: lN,year: yr,major: mjr,email: eml,phoneNumber: phn,imgURL: imgLink,sumRating: 0.0,numRating: 0.0)
+                                    self.postToFirebase(fN,lastName: lN,year: yr,major: mjr,email: eml,phoneNumber: phn,imgURL: imgLink,sumRating: 0.0,numRating: 0.0, group: 1)
                                     
                                 }
                                 
