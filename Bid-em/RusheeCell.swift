@@ -64,6 +64,8 @@ class RusheeCell: UITableViewCell {
             self.rusheeYearLbl.text = "Junior"
         case 4:
             self.rusheeYearLbl.text = "Senior"
+        case 5:
+            self.rusheeYearLbl.text = "Super Senior"
         default:
             self.rusheeYearLbl.text = "\(rushee.year)"
         }
