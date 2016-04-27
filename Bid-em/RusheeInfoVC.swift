@@ -10,13 +10,13 @@ import UIKit
 import Alamofire
 import Firebase
 
-class RusheeInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class RusheeInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPopoverPresentationControllerDelegate {
 
     @IBOutlet weak var majorLbl: UILabel?
     @IBOutlet weak var nameLbl: UILabel?
     @IBOutlet weak var submit: UIButton!
     @IBOutlet weak var commentTextField: UITextField!
-    @IBOutlet weak var ratingTextField: UITextField!
+    @IBOutlet weak var ratingBtn: UIButton!
     @IBOutlet weak var yearLbl: UILabel?
     @IBOutlet weak var emailLbl: UILabel?
     @IBOutlet weak var phoneLbl: UILabel?
@@ -30,19 +30,19 @@ class RusheeInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     var rushee : Rushee!
     var comments = [Comment]()
+    var commentRating = 0
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
-    
-    override func viewDidLoad() {
+       override func viewDidLoad() {
         super.viewDidLoad()
         
         commentTableView.delegate = self
         commentTableView.dataSource = self
         
-        submit.layer.cornerRadius = 5
+        //submit.layer.cornerRadius = 5
         
         nameLbl!.text = rushee.fullName
         majorLbl!.text = rushee.major
@@ -54,7 +54,6 @@ class RusheeInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         case 5: yearLbl!.text = "Senior"
         default: yearLbl!.text = "N/A"
         }
-        print(rushee.phoneNumber)
         phoneLbl!.text = rushee.phoneNumber
         emailLbl!.text = rushee.email
         rusheeImg!.layer.cornerRadius = rusheeImg!.frame.size.width / 2
@@ -153,6 +152,7 @@ class RusheeInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSource
                     if snap.key == self.rushee.rusheeKey {
                     if let commentSnapDict = snap.value as? Dictionary<String, String> {
                         let tempComments = commentSnapDict["comments"]!
+                        print("tempComments: \(tempComments)")
                         let tempRatings = commentSnapDict["ratings"]!
                         let tempUsernames = commentSnapDict["usernames"]!
                         var commentsArr = tempComments.componentsSeparatedByString("|")
@@ -209,18 +209,23 @@ class RusheeInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSource
                                 for snap2 in snapshots2 {
                                     if snap2.key == self.rushee.rusheeKey {
                                        if let commentSnap = snap2.value as? Dictionary<String, String> {
-                                        if self.commentTextField.text != "" && self.ratingTextField.text != "" {
-                                            self.rushee.addRating(Double(self.ratingTextField.text!)!)
+                                        if self.commentTextField.text != "" {
+                                            self.rushee.addRating(Double(self.commentRating))
                                             var tempComments = commentSnap["comments"]!
                                             var tempRatings = commentSnap["ratings"]!
                                             var tempUsernames = commentSnap["usernames"]!
                                             tempComments = "\(tempComments)|\(self.commentTextField.text!)"
-                                            tempRatings = "\(tempRatings)|\(self.ratingTextField.text!)"
+                                            tempRatings = "\(tempRatings)|\(self.commentRating)"
                                             tempUsernames = "\(tempUsernames)|\(tempUsername)"
                                             self.postToFirebase(tempUsernames, comments: tempComments, rating: tempRatings)
                                             self.configureRatings(self.rushee.rating)
 
                                             }
+                                        }
+                                    } else {
+                                        if self.commentTextField.text != "" {
+                                        self.postToFirebase(tempUsername, comments: self.commentTextField.text!, rating: String(self.commentRating))
+                                        self.configureRatings(self.rushee.rating)
                                         }
                                     }
                                 }
@@ -234,7 +239,6 @@ class RusheeInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         
         })
         commentTextField.endEditing(true)
-        ratingTextField.endEditing(true)
     }
     
     @IBAction func backBtnPressed(sender: AnyObject) {
@@ -251,8 +255,8 @@ class RusheeInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         firebasePost.setValue(post)
         
         commentTextField!.text = ""
-        ratingTextField!.text = ""
-        
+        let image = UIImage(named: "emptyBowTie")
+        ratingBtn.setImage(image, forState: .Normal)
     }
     
     func configureRatings (rating: Double){
@@ -331,6 +335,23 @@ class RusheeInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             ratingImg5!.image = UIImage(named: "emptyBowTie")
         }
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "RatingSegue" {
+            let popoverViewController = segue.destinationViewController as! RatingVC
+            popoverViewController.senderVC = self
+            popoverViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
+            popoverViewController.popoverPresentationController!.delegate = self
+            let popoverPresentationController = segue.destinationViewController.popoverPresentationController
+            let sourceView = sender as? UIButton
+            popoverPresentationController!.sourceRect = sourceView!.bounds
+        }
+    }
+    
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        return UIModalPresentationStyle.None
+    }
+    
 }
 
 

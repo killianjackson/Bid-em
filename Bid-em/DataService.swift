@@ -47,4 +47,8 @@ class DataService {
         
     }
     
+    func createCommentThread(rusheeID: String, comment: Dictionary<String, String>){
+        REF_COMMENTS.childByAppendingPath(rusheeID).setValue(comment)
+    }
+    
 }

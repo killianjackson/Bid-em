@@ -15,6 +15,7 @@
 		B242CF981C86728F002AE29C /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B242CF961C86728F002AE29C /* FBSDKLoginKit.framework */; };
 		B242CF9B1C867A3A002AE29C /* FilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B242CF9A1C867A3A002AE29C /* FilterVC.swift */; };
 		B28E3C881C916A9200D0C9FC /* Alpha54.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B28E3C871C916A9200D0C9FC /* Alpha54.ttf */; };
+		B2DD91051C956148008F27EF /* RatingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DD91041C956148008F27EF /* RatingVC.swift */; };
 		B2E4B5B61C7E4AD20023BA9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E4B5B51C7E4AD20023BA9F /* AppDelegate.swift */; };
 		B2E4B5B81C7E4AD20023BA9F /* RusheeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E4B5B71C7E4AD20023BA9F /* RusheeVC.swift */; };
 		B2E4B5BB1C7E4AD20023BA9F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2E4B5B91C7E4AD20023BA9F /* Main.storyboard */; };
@@ -49,6 +50,7 @@
 		B242CF961C86728F002AE29C /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		B242CF9A1C867A3A002AE29C /* FilterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterVC.swift; sourceTree = "<group>"; };
 		B28E3C871C916A9200D0C9FC /* Alpha54.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Alpha54.ttf; sourceTree = "<group>"; };
+		B2DD91041C956148008F27EF /* RatingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingVC.swift; sourceTree = "<group>"; };
 		B2E4B5B21C7E4AD20023BA9F /* Bid-em.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bid-em.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2E4B5B51C7E4AD20023BA9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2E4B5B71C7E4AD20023BA9F /* RusheeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RusheeVC.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				B242CF9A1C867A3A002AE29C /* FilterVC.swift */,
 				FC1E93F11C8E59100094745A /* NewRusheeVC.swift */,
 				FC3111401C8FC7C700141A4C /* RusheeInfoVC.swift */,
+				B2DD91041C956148008F27EF /* RatingVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				FC3111411C8FC7C700141A4C /* RusheeInfoVC.swift in Sources */,
 				B2E4B5D21C7E4C1A0023BA9F /* Constants.swift in Sources */,
 				B2E4B5CE1C7E4BE60023BA9F /* MaterialView.swift in Sources */,
+				B2DD91051C956148008F27EF /* RatingVC.swift in Sources */,
 				B242CF9B1C867A3A002AE29C /* FilterVC.swift in Sources */,
 				B2E4B5CF1C7E4BE60023BA9F /* MaterialButton.swift in Sources */,
 				B2F107F21C7FC1BF00DFC081 /* Rushee.swift in Sources */,
